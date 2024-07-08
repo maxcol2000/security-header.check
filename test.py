@@ -15,10 +15,12 @@ def test_security_headers(url):
         x_content_type_options = 'X-Content-Type-Options' in security_headers
         x_xss_protection = 'X-XSS-Protection' in security_headers
 
+        print(f"Checking security headers for: {url}")
         print(f"X-Frame-Options {'found' if x_frame_options else 'not found'}")
         print(f"Content-Security-Policy {'found' if content_security_policy else 'not found'}")
         print(f"X-Content-Type-Options {'found' if x_content_type_options else 'not found'}")
         print(f"X-XSS-Protection {'found' if x_xss_protection else 'not found'}")
+        print()
 
     except requests.RequestException as e:
         print(f"Error fetching URL: {url}, {e}")
